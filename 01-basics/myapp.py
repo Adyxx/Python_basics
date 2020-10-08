@@ -20,7 +20,7 @@ if q3 == "1993":
     success_rate+=20
     correct+=1
 
-q4= input('Kdo napsal slova k české hymně?:')
+q4= input('Kdo je autorem hudby v české hymně?:')
 if q4 == "Frantisek Skroup" or q4 == "František Škroup":
     success_rate+=20
     correct+=1
