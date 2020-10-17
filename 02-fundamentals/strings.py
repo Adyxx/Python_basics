@@ -70,7 +70,7 @@ Na prvním řádku jsou uvedeny všechny možné slice-indexy 0...5 v řetězci 
 # Vypíše poslední znak z řetězce
 # print(course_name[-1])
 # Vypíše vše od 2. do 4. znaku (bez něj)
-# print(course_name[1:3])
+#print(b[1:3])
 
 '''
 Slice indexy mají specifické vlastnosti. Vynecháme-li první index, je za něj automaticky dosazena nula (začátek řetězce). 
@@ -158,3 +158,35 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+
+abb="12. 10. 2020"
+den=abb[:2]
+mesic=abb[4:6]
+rok=abb[8:]
+print("{}-{}-{}".format(rok,mesic,den))
+
+pismenka=input("Piš zde: ")
+print("V pythonu: {} ".format(pismenka.lower().replace(" ","_")))
+print("V JS: {}".format(pismenka.title().replace(" ","")))
+
+import random
+import string
+
+def funkce():
+    upper=''.join(random.choice(string.ascii_uppercase) for i in range(3))
+    lower=''.join(random.choice(string.ascii_lowercase) for i in range(3))
+    number=round((random.random())*999)
+
+    cislo=round((random.random())*3)
+    if cislo == 0:
+        znak="-"
+    elif cislo ==1:
+        znak="+"
+    elif cislo ==2:
+        znak="/"
+    else:
+        znak ="*"
+
+    print("Heslo: "+upper+lower+znak+str(number))
+
+funkce()
