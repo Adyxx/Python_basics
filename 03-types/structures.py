@@ -1,4 +1,3 @@
-
 veta =list("Tři sta třicet tři stříbrných stříkaček přestříkalo přes tři sta třicet tři stříbrných střech.")
 vypis = []
 numbers = []
@@ -9,7 +8,6 @@ def charFrequency(retezec):
       if (retezec[i] not in chars):
         numbers.append(retezec.count(retezec[i]))
         chars.append(retezec[i])
-
     vypis = list(zip(chars, numbers))
     print("Četnost výskytu písmen:\n--------------------------")
     for i in range(0,len(vypis)):
