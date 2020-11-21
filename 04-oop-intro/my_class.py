@@ -6,7 +6,7 @@ class Square:
     name_of_object = ''
     size_of_side = 20   # cm
 
-    def __init__(self,name, size, pic):
+    def __init__(self, name, size, pic):
         self.size = size
         self.pic = pic
         self.name = name
@@ -40,6 +40,17 @@ class Square:
 
     def calc(self, n):
         return self.pic == n.pic
+
+
+
+class InfoSquare(Square):
+    def __init__(self, name, size, pic, surname):
+        super().__init__(name, size, pic)
+        self.surname = surname
+
+    def __str__(self):
+        return f'[ {self.surname} {self.name} ] : [ {self.size}x{self.size} {self.color} čtverec {self.pic} ]'
+
 
 
 print("----------------------------")
@@ -79,3 +90,7 @@ if square01.calc(square03):
     print(" --> Oba objekty jsou",square01.pic)
 else:
     print(" --> Obrázky objektů se neshodují")
+
+Square.default_color = 'červený'
+square04 = InfoSquare('Jahoda', 42, 'bez obrázku','Lahodná')
+print(square04)
