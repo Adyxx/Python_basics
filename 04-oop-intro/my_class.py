@@ -4,7 +4,8 @@ class Square:
     default_color = 'bílý'
     picture_on_object = ''
     name_of_object = ''
-    size_of_side = 20   # cm
+    size_of_side = 50   # cm
+
 
     def __init__(self, name, size, pic):
         self.size = size
@@ -41,7 +42,19 @@ class Square:
     def calc(self, n):
         return self.pic == n.pic
 
+    @property
+    def size(self):
+        return self.__size
 
+    @size.setter
+    def size(self, value):
+        try:
+            value = int(value)
+            if value > Square.size_of_side:
+                raise Exception(f'Velikost čtverce je větší než velikost, která je nastavena jako výchozí [{Square.size_of_side}]')
+            self.__size = value
+        except ValueError:
+            raise ValueError('Zadaná velikost není číslo.')
 
 class InfoSquare(Square):
     def __init__(self, name, size, pic, surname):
@@ -76,7 +89,7 @@ print(" --> Velikost nového objektu je "+str((square01+square02))+"x"+ str((squ
 
 print([Square.random_color() for i in range (5)])
 
-print([Square.classm(100,200,200)for i in range (5)])
+print([Square.classm(10,20,20)for i in range (5)])
 
 square02.draw()
 if square02.calc(square01):
@@ -94,3 +107,6 @@ else:
 Square.default_color = 'červený'
 square04 = InfoSquare('Jahoda', 42, 'bez obrázku','Lahodná')
 print(square04)
+
+
+# square05 = Square('Wrong', 80, 'X')         čtverec je větší než 50 (defaultně nastaveno v size_of_side) -- vyhodí chybu
